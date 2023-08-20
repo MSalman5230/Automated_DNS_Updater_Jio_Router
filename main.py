@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 from os import getenv
 from time import sleep
 from ipaddress import ip_address
+
 load_dotenv()
 
 
@@ -20,14 +21,16 @@ ipv6_dns_server1 = getenv("ipv6_dns_server1")
 ipv6_dns_server2 = getenv("ipv6_dns_server2")
 update_interval_time = int(getenv("update_interval_time"))
 
+
 def display_settings():
     print("Router IP:", url)
-    print("user_name:",username)
-    print("ipv4_dns_server1:",ipv4_dns_server1)
-    print("ipv4_dns_server2:",ipv4_dns_server2)
-    print("ipv6_dns_server1:",ipv6_dns_server1)
-    print("ipv6_dns_server2:",ipv6_dns_server2)
-    print("update_interval_time:",update_interval_time)
+    print("user_name:", username)
+    print("ipv4_dns_server1:", ipv4_dns_server1)
+    print("ipv4_dns_server2:", ipv4_dns_server2)
+    print("ipv6_dns_server1:", ipv6_dns_server1)
+    print("ipv6_dns_server2:", ipv6_dns_server2)
+    print("update_interval_time:", update_interval_time)
+
 
 def check_DNS_IPs():
     try:
@@ -40,6 +43,7 @@ def check_DNS_IPs():
     except:
         print("DNS servers IP's not valid: exiting")
         exit()
+
 
 def create_web_driver():
     try:
@@ -155,7 +159,6 @@ def logout(driver):
 
 
 def main():
-    
     while True:
         if url and username and password and ipv4_dns_server1 and ipv4_dns_server2 and ipv6_dns_server1 and ipv6_dns_server2 and update_interval_time:
             display_settings()
